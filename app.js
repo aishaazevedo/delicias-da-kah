@@ -3,7 +3,7 @@ const cardapio = [
     { 
         id: 1, 
         nome: "Kit Lembrancinha 💝", 
-        categoria: "Kits Especiais", 
+        categoria: "Kits", 
         preco: 12.00, 
         descricao: "Ideal para presentear quem você ama com muito carinho.", 
         itens: ["2 Pãozinhos Delícia", "1 Coxinha", "1 Empadinha"], 
@@ -13,7 +13,7 @@ const cardapio = [
     { 
         id: 2, 
         nome: "Kit Café da Mamãe ☕", 
-        categoria: "Kits Especiais", 
+        categoria: "Salgados", 
         preco: 28.00, 
         descricao: "Uma combinação perfeita para um café da manhã ou tarde especial.", 
         itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "1 Empadinha", "1 Mini Quiche", "1 Salgado Sortido"], 
@@ -23,7 +23,7 @@ const cardapio = [
     { 
         id: 3, 
         nome: "Kit Especial da Mamãe ✨", 
-        categoria: "Kits Especiais", 
+        categoria: "Kits", 
         preco: 40.00, 
         descricao: "O kit mais completo para surpreender e saborear.", 
         itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "2 Empadinhas", "2 Mini Quiches", "1 Mini Pão Recheado"], 
@@ -33,7 +33,7 @@ const cardapio = [
     { 
         id: 4, 
         nome: "Quiche Média 🥧", 
-        categoria: "Pratos Principais", 
+        categoria: "Salgados", 
         preco: 100.00, 
         descricao: "Massa leve e recheio cremoso. Perfeito para completar sua celebração.", 
         itens: [], 
@@ -43,7 +43,7 @@ const cardapio = [
     { 
         id: 5, 
         nome: "Empadão Médio (Frango) 🥧", 
-        categoria: "Pratos Principais", 
+        categoria: "Salgados", 
         preco: 100.00, 
         descricao: "Aquele empadão clássico bem recheado que derrete na boca.", 
         itens: [], 
@@ -53,7 +53,7 @@ const cardapio = [
     {
         id: 6,
         nome: "Pãozinho Delícia com Recheio 🥖",
-        categoria: "paes",
+        categoria: "Pães",
         preco: 2.30,
         descricao: "Pãozinho tradicional super fofinho com recheio cremoso.",
         itens: [],
@@ -120,26 +120,38 @@ function renderizarCardapio(categoriaFiltrada = "todos") {
     });
 }
 
-// 3. NOVA FUNÇÃO: Gerencia o clique nos botões e altera o visual deles
+// Gerencia o clique nas categorias
 function filtrarCategoria(nomeCategoria) {
+
     categoriaAtual = nomeCategoria;
-    
-    // Manda renderizar a tela novamente, passando apenas a categoria escolhida
+
+    // Renderiza os produtos da categoria escolhida
     renderizarCardapio(nomeCategoria);
 
-    // Lógica visual: Seleciona todos os botões de categoria da tela
-    const botoes = document.querySelectorAll('.categoria-btn');
-    
+    // Atualiza o visual dos botões
+    const botoes = document.querySelectorAll(".categoria-btn");
+
     botoes.forEach(btn => {
-        // Descobre qual categoria aquele botão específico dispara olhando o texto do onclick
-        if (btn.getAttribute('onclick').includes(`'${nomeCategoria}'`)) {
-            // Se for o botão clicado, bota fundo rosa e texto branco
-            btn.className = "categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm";
+
+        // Categoria do botão (obtida pelo onclick)
+        const categoriaBotao = btn
+            .getAttribute("onclick")
+            .match(/'([^']+)'/)[1];
+
+        if (categoriaBotao.toLowerCase() === nomeCategoria.toLowerCase()) {
+
+            btn.className =
+                "categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm";
+
         } else {
-            // Se não for, volta para o fundo branco com borda clarinha
-            btn.className = "categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
+
+            btn.className =
+                "categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
+
         }
+
     });
+
 }
 
 // Mantemos as mesmas funções de carrinho e WhatsApp abaixo

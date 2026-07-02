@@ -16,17 +16,21 @@
   <div class="w-full max-w-screen-md mx-auto bg-white min-h-screen shadow-2xl relative">
 
     <!-- Cabeçalho -->
-    <header class="bg-[#FFF0F2] border-b border-pink-100/60 sticky top-0 z-40 flex justify-between items-center px-4 py-3">
-      <button class="w-10 h-10 flex items-center justify-center bg-[#FCE2E6] text-[#D14175] rounded-full font-bold text-lg hover:bg-pink-200 transition">☰</button>
-      <div class="text-center">
-        <span class="text-[9px] uppercase font-bold text-gray-400 tracking-wider block leading-none">Delícias da</span>
-        <span class="text-xl font-serif italic font-black text-[#D14175]">Kah ❤️</span>
-      </div>
-      <button class="relative w-10 h-10 flex items-center justify-center bg-[#D14175] text-white rounded-full text-base hover:bg-[#b53462] transition shadow-sm">
-        🛒
-        <span id="carrinho-qtd" class="absolute -top-1 -right-1 bg-[#D14175] text-white border-2 border-[#FFF0F2] font-bold text-[9px] w-5 h-5 flex items-center justify-center rounded-full">0</span>
-      </button>
-    </header>
+ <header class="bg-[#FFE6EB] border-b border-pink-100/60 sticky top-0 z-40 flex justify-between items-center px-4 py-3">
+  <button class="w-10 h-10 flex items-center justify-center bg-white text-[#D14175] rounded-full border border-[#D14175] font-bold text-lg hover:bg-pink-100 transition">☰</button>
+  <div class="text-center">
+    <span class="text-xs uppercase font-bold text-gray-400 tracking-wider block leading-none">Delícias da</span>
+    <span class="text-2xl font-serif italic font-black text-[#D14175]">Kah <span class="text-pink-400">💗</span></span>
+    <span class="text-[10px] text-gray-400 block">Por Karine</span>
+  </div>
+  <button class="relative w-10 h-10 flex items-center justify-center bg-[#D14175] text-white rounded-full text-base hover:bg-[#b53462] transition shadow-sm">
+    🛒
+    <span id="carrinho-qtd" class="absolute -top-1 -right-1 bg-[#D14175] text-white border-2 border-[#FFE6EB] font-bold text-[9px] w-5 h-5 flex items-center justify-center rounded-full">2</span>
+  </button>
+</header>
+
+
+
 
     <!-- Seção principal -->
     <section class="bg-[#FFF0F2] px-4 py-6 overflow-hidden">
@@ -47,18 +51,25 @@
     </section>
 
     <!-- Filtros de categoria -->
-    <div class="sticky top-[73px] bg-white py-3 px-4 z-30 overflow-x-auto flex gap-2 no-scrollbar border-b border-gray-50">
-      <button onclick="filtrarCategoria('todos')" class="categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm">Todos</button>
-      <button onclick="filtrarCategoria('kits')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Kits</button>
-      <button onclick="filtrarCategoria('salgados')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Salgados</button>
-      <button onclick="filtrarCategoria('paes')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Pães</button>
-      <button onclick="filtrarCategoria('doces')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Doces</button>
-    </div>
+<header class="bg-[#FFF0F2] border-b border-pink-100/60 sticky top-0 z-40 w-full">
+    <div class="max-w-md mx-auto flex justify-between items-center px-4 py-3">
+        </div>
+</header>
 
-    <!-- Lista de produtos -->
-    <main class="p-4 sm:p-6 md:p-8">
-      <section id="lista-produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></section>
-    </main>
+<div class="sticky top-[73px] bg-white py-3 px-4 z-30 overflow-x-auto flex gap-2 no-scrollbar border-b border-gray-100 shadow-sm">
+    <div class="max-w-md mx-auto flex gap-2">
+        <button onclick="filtrarCategoria('todos')" class="categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm">Todos</button>
+        <button onclick="filtrarCategoria('Kits')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Kits</button>
+        <button onclick="filtrarCategoria('Salgados')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Salgados</button>
+        <button onclick="filtrarCategoria('Pães')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Pães</button>
+        <button onclick="filtrarCategoria('Doces')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Doces</button>
+    </div>
+</div>
+
+<main class="max-w-md mx-auto bg-white min-h-screen p-4">
+    <section id="lista-produtos" class="grid grid-cols-1 gap-4">
+        </section>
+</main>
 
     <!-- Checkout fixo -->
     <div id="container-checkout"
