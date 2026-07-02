@@ -1,74 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delícias da Kah - Cardápio Digital</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delícias da Kah - Cardápio Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-[#FFF8F8] text-gray-800 antialiased pb-32">
+<body class="bg-[#FFF0F2] text-gray-800 antialiased pb-32">
 
-    <!-- Topo Minimalista Mobile -->
-    <header class="bg-white text-center py-4 shadow-sm sticky top-0 z-40 border-b border-pink-100 flex justify-between items-center px-4">
-        <div class="text-[#D14175] text-xl font-bold">💝 Delícias da Kah</div>
-        <div class="bg-pink-100 text-[#D14175] font-bold text-xs px-3 py-1 rounded-full">Menu</div>
+  <!-- Container principal -->
+  <div class="w-full max-w-screen-md mx-auto bg-white min-h-screen shadow-2xl relative">
+
+    <!-- Cabeçalho -->
+    <header class="bg-[#FFF0F2] border-b border-pink-100/60 sticky top-0 z-40 flex justify-between items-center px-4 py-3">
+      <button class="w-10 h-10 flex items-center justify-center bg-[#FCE2E6] text-[#D14175] rounded-full font-bold text-lg hover:bg-pink-200 transition">☰</button>
+      <div class="text-center">
+        <span class="text-[9px] uppercase font-bold text-gray-400 tracking-wider block leading-none">Delícias da</span>
+        <span class="text-xl font-serif italic font-black text-[#D14175]">Kah ❤️</span>
+      </div>
+      <button class="relative w-10 h-10 flex items-center justify-center bg-[#D14175] text-white rounded-full text-base hover:bg-[#b53462] transition shadow-sm">
+        🛒
+        <span id="carrinho-qtd" class="absolute -top-1 -right-1 bg-[#D14175] text-white border-2 border-[#FFF0F2] font-bold text-[9px] w-5 h-5 flex items-center justify-center rounded-full">0</span>
+      </button>
     </header>
 
-    <!-- Banner Principal Inspirado na Referência -->
-    <section class="text-center py-8 px-4 bg-gradient-to-b from-pink-50 to-[#FFF8F8]">
-        <h2 class="text-2xl font-extrabold text-gray-800 leading-tight">
-            Doces feitos com <br><span class="text-[#D14175] font-serif italic font-normal">amor e carinho!</span>
-        </h2>
-        <p class="text-xs text-gray-500 mt-2 max-w-xs mx-auto">Delícias que adoçam seus melhores momentos. Escolha abaixo:</p>
+    <!-- Seção principal -->
+    <section class="bg-[#FFF0F2] px-4 py-6 overflow-hidden">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="md:w-3/5 w-full space-y-3 text-center md:text-left">
+          <h2 class="text-base font-black text-[#3A1D28] leading-tight">
+            Delícias feitas com <br>
+            <span class="text-[#D14175] font-serif italic font-normal text-lg block mt-0.5">
+              amor e carinho!
+            </span>
+          </h2>
+        </div>
+        <div class="md:w-2/5 w-full h-40 md:h-32 rounded-2xl overflow-hidden relative shadow-sm">
+          <img src="https://images.unsplash.com/photo-1570476922354-81227cdbb76c?w=300&auto=format&fit=crop&q=80"
+               alt="Doces" class="w-full h-full object-cover">
+        </div>
+      </div>
     </section>
 
-    <!-- Categorias Horizontais -->
-    <div class="sticky top-[57px] bg-[#FFF8F8] py-3 px-4 z-30 overflow-x-auto flex gap-2 no-scrollbar">
-    <button onclick="filtrarCategoria('todos')" class="categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm">Todos</button>
-    
-    <button onclick="filtrarCategoria('kits')" class="categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Kits Especiais</button>
-    <button onclick="filtrarCategoria('salgados')" class="categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Salgados de Festa</button>
-    <button onclick="filtrarCategoria('paes')" class="categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Pães Delícia</button>
-    <button onclick="filtrarCategoria('doces')" class="categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Doces e Tortas</button>
-</div>
-
-    <!-- Lista de Produtos (Módulos injetados pelo JS) -->
-    <main class="max-w-md mx-auto p-4">
-        <section id="lista-produtos" class="grid grid-cols-1 gap-4">
-            <!-- Os cards dos doces entram aqui -->
-        </section>
-    </main>
-
-    <!-- CONTAINER FLUTUANTE DE RESUMO DO PEDIDO & BOTÃO WHATSAPP -->
-    <div id="container-checkout" class="fixed bottom-0 left-0 right-0 bg-white border-t border-pink-100 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] p-4 z-50 max-w-md mx-auto rounded-t-3xl hidden">
-        
-        <!-- Caixa Informativa do Pedido (Baseada no componente rosa da imagem) -->
-        <div class="bg-[#FFF0F3] p-4 rounded-2xl mb-3">
-            <div class="flex justify-between items-center text-sm font-bold text-gray-800 mb-2">
-                <span>🛍️ Seu Pedido (<span id="checkout-qtd">0</span>)</span>
-                <span id="checkout-total" class="text-[#D14175] text-base">R$ 0,00</span>
-            </div>
-            <!-- Lista compacta com os nomes dos itens escolhidos -->
-            <div id="checkout-itens-lista" class="text-xs text-gray-600 max-h-20 overflow-y-auto space-y-1 divide-y divide-pink-50">
-                <!-- Preenchido dinamicamente pelo JS -->
-            </div>
-        </div>
-
-        <!-- Botão Principal de Integração com o WhatsApp -->
-        <button onclick="enviarParaWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex justify-center items-center gap-2 py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all active:scale-[0.98]">
-            <!-- Ícone simulando o Zap -->
-            <span class="text-lg">💬</span>
-            <span>Finalizar pedido pelo WhatsApp</span>
-        </button>
+    <!-- Filtros de categoria -->
+    <div class="sticky top-[73px] bg-white py-3 px-4 z-30 overflow-x-auto flex gap-2 no-scrollbar border-b border-gray-50">
+      <button onclick="filtrarCategoria('todos')" class="categoria-btn bg-[#D14175] text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow-sm">Todos</button>
+      <button onclick="filtrarCategoria('kits')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Kits</button>
+      <button onclick="filtrarCategoria('salgados')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Salgados</button>
+      <button onclick="filtrarCategoria('paes')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Pães</button>
+      <button onclick="filtrarCategoria('doces')" class="categoria-btn bg-gray-100 text-gray-600 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap">Doces</button>
     </div>
 
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-</body>
-</html>
-<!-- ... resto do código anterior ... -->
-    <script src="app.js" defer></script>
+    <!-- Lista de produtos -->
+    <main class="p-4 sm:p-6 md:p-8">
+      <section id="lista-produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></section>
+    </main>
+
+    <!-- Checkout fixo -->
+    <div id="container-checkout"
+         class="fixed bottom-0 left-0 w-full bg-white border-t border-pink-100 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] p-4 z-50 rounded-t-3xl hidden">
+      <div class="bg-[#FFF0F3] p-4 rounded-2xl mb-3">
+        <div class="flex justify-between items-center text-sm font-bold text-gray-800 mb-2">
+          <span>🛍️ Seu Pedido (<span id="checkout-qtd">0</span>)</span>
+          <span id="checkout-total" class="text-[#D14175] text-base">R$ 0,00</span>
+        </div>
+        <div id="checkout-itens-lista" class="text-xs text-gray-600 max-h-20 overflow-y-auto space-y-1"></div>
+      </div>
+      <button onclick="enviarParaWhatsApp()" class="w-full bg-[#25D366] text-white py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all active:scale-[0.98]">
+        Finalizar pedido pelo WhatsApp
+      </button>
+    </div>
+
+  </div>
+
+  <script src="app.js" defer></script>
 </body>
 </html>

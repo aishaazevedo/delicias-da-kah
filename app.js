@@ -1,4 +1,4 @@
-// 1. O Banco de Dados agora inclui a propriedade 'imagem' com o caminho correto do arquivo
+// 1. O Banco de Dados 
 const cardapio = [
     { 
         id: 1, 
@@ -155,14 +155,48 @@ function adicionarAoCarrinho(idDoce) {
     atualizarInterfaceCheckout();
 }
 
+// Função para remover item do carrinho
+function removerDoCarrinho(idDoce) {
+    
+    const itemIndex = carrinho.findIndex(item => item.id === idDoce);
+    
+    if (itemIndex !== -1) {
+        const item = carrinho[itemIndex];
+        
+        if (item.quantidade > 1) {
+            // Se tiver mais de 1, diminui a quantidade
+            item.quantidade -= 1;
+        } else {
+            // Se tiver apenas 1, remove o item completamente
+            carrinho.splice(itemIndex, 1);
+        }
+        
+        atualizarInterfaceCheckout();
+    }
+}
+
+
 function atualizarInterfaceCheckout() {
     const containerCheckout = document.getElementById('container-checkout');
     const txtQtd = document.getElementById('checkout-qtd');
     const txtTotal = document.getElementById('checkout-total');
     const listaItensArea = document.getElementById('checkout-itens-lista');
 
+    // 1. Calcula a quantidade total geral de itens para colocar na bolinha do topo
+    let qtdTotalGeral = 0;
+    carrinho.forEach(item => {
+        qtdTotalGeral += item.quantidade;
+    });
+
+    // 2. Atualiza o contador do ícone de carrinho lá do topo
+    const logoCarrinhoQtd = document.getElementById('carrinho-qtd');
+    if (logoCarrinhoQtd) {
+        logoCarrinhoQtd.innerText = qtdTotalGeral;
+    }
+
+    // 3. Se o carrinho estiver vazio, esconde a barra inferior e encerra a função
     if (carrinho.length === 0) {
-        containerCheckout.classList.add('hidden');
+        if (containerCheckout) containerCheckout.classList.add('hidden');
         return;
     }
 
@@ -170,21 +204,28 @@ function atualizarInterfaceCheckout() {
     let valorTotal = 0;
     listaItensArea.innerHTML = "";
 
+    // 4. Monta a lista dos itens que estão no carrinho
     carrinho.forEach(item => {
         qtdTotal += item.quantidade;
         valorTotal += item.preco * item.quantidade;
 
         listaItensArea.innerHTML += `
-            <div class="flex justify-between py-1">
-                <span>${item.quantidade}x ${item.nome}</span>
-                <span class="font-medium">R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+            <div class="flex justify-between items-center py-1">
+                <div>
+                    <span>${item.quantidade}x ${item.nome}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="font-medium">R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+                    <button onclick="removerDoCarrinho(${item.id})" class="text-red-500 text-lg font-bold ml-2">-</button>
+                </div>
             </div>
         `;
     });
 
+    // 5. Atualiza as informações do resumo inferior e exibe a barra
     txtQtd.innerText = `${qtdTotal} ${qtdTotal === 1 ? 'item' : 'itens'}`;
     txtTotal.innerText = `R$ ${valorTotal.toFixed(2)}`;
-    containerCheckout.classList.remove('hidden');
+    if (containerCheckout) containerCheckout.classList.remove('hidden');
 }
 
 function enviarParaWhatsApp() {
