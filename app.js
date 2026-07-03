@@ -72,7 +72,7 @@ const cardapio = [
     descricao: "Mini coxinha sequinha com recheio suculento de frango.",
     itens: ["1 unidade de mini coxinha"],
     tag: "Favorito",
-    imagem: "imagens/coxinha-festa.jpg"
+    imagem: "imagens/coxinha.jpeg"
 },
 {
     id: 8,
@@ -82,7 +82,7 @@ const cardapio = [
     descricao: "Kibe tradicional.",
     itens: ["1 unidade de mini kibe"],
     tag: "Tradicional",
-    imagem: "imagens/kibe.jpg"
+    imagem: "imagens/kibe.jpeg"
 },
 {
     id: 9,
@@ -92,7 +92,7 @@ const cardapio = [
     descricao: "Massa que derrete na boca com recheio cremoso de frango.",
     itens: ["1 unidade de mini empadinha de frango"],
     tag: "Mais Pedido",
-    imagem: "imagens/empadinha-frango.jpg"
+    imagem: "imagens/empadinha.jpeg"
 },
 
     //Pães 
@@ -187,7 +187,7 @@ const cardapio = [
         descricao: "O clássico brasileiro feito com chocolate nobre.",
         itens: ["1 unidade de brigadeiro tradicional"],
         tag: "Favorito",
-        imagem: "imagens/brigadeiro.png"
+        imagem: "imagens/brigadeiro.jpg"
     },
     
     {
@@ -198,7 +198,7 @@ const cardapio = [
         descricao: "Uva verde selecionada envolta em brigadeiro branco.",
         itens: ["1 unidade de brigadeiro de uva coberta"],
         tag: "Destaque",
-        imagem: "imagens/uva-coberta.png"
+        imagem: "imagens/uva-coberta.jpg"
     },
     {
         id: 20,
@@ -208,7 +208,7 @@ const cardapio = [
         descricao: "Doce de coco cremoso com acabamento delicado.",
         itens: ["1 unidade de brigadeiro beijinho"],
         tag: "Tradicional",
-        imagem: "imagens/beijinho.png"
+        imagem: "imagens/beijinho.jpg"
     },
     {
         id: 21,
@@ -228,7 +228,7 @@ const cardapio = [
         descricao: "Duas massinhas macias com recheio de brigadeiro branco e brigadeiro tradicional.",
         itens: ["1 unidade de brigadeiro casadinho"],
         tag: "Tradicional",
-        imagem: "imagens/casadinho.png"
+        imagem: "imagens/casadinho.jpg"
     },
     {
         id: 23,
