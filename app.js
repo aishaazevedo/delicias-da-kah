@@ -1,75 +1,246 @@
 // 1. O Banco de Dados 
 const cardapio = [
-    { 
-        id: 1, 
-        nome: "Kit Lembrancinha 💝", 
-        categoria: "Kits", 
-        preco: 12.00, 
-        descricao: "Ideal para presentear quem você ama com muito carinho.", 
-        itens: ["2 Pãozinhos Delícia", "1 Coxinha", "1 Empadinha"], 
+
+    //kits 
+    {
+        id: 1,
+        nome: "Kit Lembrancinha 💝",
+        categoria: "Kits",
+        preco: 12.00,
+        descricao: "Ideal para presentear quem você ama com muito carinho.",
+        itens: ["2 Pãozinhos Delícia", "1 Coxinha", "1 Empadinha"],
         tag: "Mais Econômico",
-        imagem: "imagens/kit-lembrancinha.jpg" // <-- Caminho da foto na sua pasta
+        imagem: "imagens/kit-lembrancinha.png"
     },
-    { 
-        id: 2, 
-        nome: "Kit Café da Mamãe ☕", 
-        categoria: "Salgados", 
-        preco: 28.00, 
-        descricao: "Uma combinação perfeita para um café da manhã ou tarde especial.", 
-        itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "1 Empadinha", "1 Mini Quiche", "1 Salgado Sortido"], 
+    {
+        id: 2,
+        nome: "Kit Café da Mamãe ☕",
+        categoria: "Kits",
+        preco: 28.00,
+        descricao: "Uma combinação perfeita para um café da manhã ou tarde especial.",
+        itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "1 Empadinha", "1 Mini Quiche", "1 Salgado Sortido"],
         tag: "Destaque",
-        imagem: "imagens/kit-cafe.jpg" 
+        imagem: "imagens/kit-cafe.png"
     },
-    { 
-        id: 3, 
-        nome: "Kit Especial da Mamãe ✨", 
-        categoria: "Kits", 
-        preco: 40.00, 
-        descricao: "O kit mais completo para surpreender e saborear.", 
-        itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "2 Empadinhas", "2 Mini Quiches", "1 Mini Pão Recheado"], 
+    {
+        id: 3,
+        nome: "Kit Especial da Mamãe ✨",
+        categoria: "Kits",
+        preco: 40.00,
+        descricao: "O kit mais completo para surpreender e saborear.",
+        itens: ["3 Pãozinhos Delícia", "2 Coxinhas", "2 Empadinhas", "2 Mini Quiches", "1 Mini Pão Recheado"],
         tag: "Quantidade Limitada!",
-        imagem: "imagens/kit-especial.jpg"
+        imagem: "imagens/kit-especial.png"
     },
-    { 
-        id: 4, 
-        nome: "Quiche Média 🥧", 
-        categoria: "Salgados", 
-        preco: 100.00, 
-        descricao: "Massa leve e recheio cremoso. Perfeito para completar sua celebração.", 
-        itens: [], 
+    {
+        id: 4,
+        nome: "Kit Pãezinhos 💝",
+        categoria: "Kits",
+        preco: 13.00,
+        descricao: "Ideal para presentear quem você ama com muito carinho, contendo uma seleção especial de 6 pãezinhos.",
+        itens: ["6 Pãezinhos Delícia Tradicionais Com Recheio"],
+        tag: "Mais Econômico",
+        imagem: "imagens/kit-paezinhos-trad.jpeg"
+    },
+
+    //Salgados
+    {
+        id: 5,
+        nome: "Quiche Média 🥧",
+        categoria: "Salgados",
+        preco: 100.00,
+        descricao: "Massa leve e recheio cremoso. Perfeito para completar sua celebração.",
+        itens: ["1 unidade de quiche média"],
         tag: "Sugestão da Kah",
-        imagem: "imagens/quiche.jpg"
-    },
-    { 
-        id: 5, 
-        nome: "Empadão Médio (Frango) 🥧", 
-        categoria: "Salgados", 
-        preco: 100.00, 
-        descricao: "Aquele empadão clássico bem recheado que derrete na boca.", 
-        itens: [], 
-        tag: "Sucesso de Vendas",
-        imagem: "imagens/empadao.jpg"
+        imagem: "imagens/quiche.png"
     },
     {
         id: 6,
+        nome: "Empadão Médio (Frango) 🥧",
+        categoria: "Salgados",
+        preco: 100.00,
+        descricao: "Aquele empadão clássico bem recheado que derrete na boca.",
+        itens: ["1 unidade de empadão médio de frango"],
+        tag: "Sucesso de Vendas",
+        imagem: "imagens/empadao.png"
+    },
+    {
+    id: 7,
+    nome: "Coxinha de Festa 🍗",
+    categoria: "Salgados",
+    preco: 3.00,
+    descricao: "Mini coxinha sequinha com recheio suculento de frango.",
+    itens: ["1 unidade de mini coxinha"],
+    tag: "Favorito",
+    imagem: "imagens/coxinha-festa.jpg"
+},
+{
+    id: 8,
+    nome: "Kibe de festa ",
+    categoria: "Salgados",
+    preco: 3.00,
+    descricao: "Kibe tradicional.",
+    itens: ["1 unidade de mini kibe"],
+    tag: "Tradicional",
+    imagem: "imagens/kibe.jpg"
+},
+{
+    id: 9,
+    nome: "Empadinha de Frango 🥧",
+    categoria: "Salgados",
+    preco: 3.00,
+    descricao: "Massa que derrete na boca com recheio cremoso de frango.",
+    itens: ["1 unidade de mini empadinha de frango"],
+    tag: "Mais Pedido",
+    imagem: "imagens/empadinha-frango.jpg"
+},
+
+    //Pães 
+    {
+        id: 10,
         nome: "Pãozinho Delícia com Recheio 🥖",
         categoria: "Pães",
         preco: 2.30,
         descricao: "Pãozinho tradicional super fofinho com recheio cremoso.",
-        itens: [],
+        itens: ["1 unidade de pãozinho delícia com recheio"],
         tag: "O Queridinho",
-        imagem: "imagens/pao-recheado.jpg"
+        imagem: "imagens/pao-recheado.png"
     },
     {
-        id: 7,
-        nome: "Bolo no Pote Ninho com Nutella 🍫",
-        categoria: "doces",
-        preco: 12.00,
-        descricao: "Camadas generosas de creme de leite Ninho com Nutella pura.",
-        itens: [],
-        tag: "Mais Pedido",
-        imagem: "imagens/ninho-nutella.jpg"
+        id: 11,
+        nome: "Dogão no Forno 🌭",
+        categoria: "Pães",
+        preco: 20.00,
+        descricao: "Salsicha de qualidade, molho especial, milho, ervilha, queijo derretido e batata palha crocante.",
+        itens: ["1 unidade de pão com recheio de dogão"],
+        tag: "Novo Sabor",
+        imagem: "imagens/dogao-forno.png"
+    },
+    {
+        id: 12,
+        nome: "Carne Louca Premium 🥩",
+        categoria: "Pães",
+        preco: 25.00,
+        descricao: "Massa artesanal recheada com carne louca temperada, decorada com pimenta biquinho e pitanga de catupiry.",
+        itens: ["1 unidade de pão com recheio de carne louca"],
+        tag: "Novo Sabor",
+        imagem: "imagens/carne-louca.png"
+    },
+    {
+        id: 13,
+        nome: "Quatro Queijos Especial 🧀",
+        categoria: "Pães",
+        preco: 25.00,
+        descricao: "Recheado com catupiry, mussarela, queijo do reino e cheddar, finalizado com queijo parmesão.",
+        itens: ["1 unidade de pão com recheio de quatro queijos"],
+        tag: "Novo Sabor",
+        imagem: "imagens/pao-4-queijos.png"
+    },
+    {
+        id: 14,
+        nome: "Pão Recheado Calabresa 🥖",
+        categoria: "Pães",
+        preco: 20.00,
+        descricao: "Sabor marcante de calabresa com queijo derretido.",
+        itens: ["1 unidade de pão com recheio de calabresa"],
+        tag: "Destaque",
+        imagem: "imagens/paoDeCalabresa.png"
+    },
+    {
+        id: 15,
+        nome: "Pão Recheado Frango 🍗",
+        categoria: "Pães",
+        preco: 20.00,
+        descricao: "Recheado com frango temperado e suculento.",
+        itens: ["1 unidade de pão com recheio de frango"],
+        tag: "Destaque",
+        imagem: "imagens/pao-frango.png"
+    },
+    {
+        id: 16,
+        nome: "Pão Recheado Pizza 🍕",
+        categoria: "Pães",
+        preco: 20.00,
+        descricao: "Queijo, presunto e molho de tomate.",
+        itens: ["1 unidade de pão com recheio de pizza"],
+        tag: "Destaque",
+        imagem: "imagens/pao-pizza.png"
+    },
+    {
+        id: 17,
+        nome: "Pãozinho Delícia com Recheio de Queijo do Reino 🥖",
+        categoria: "Pães",
+        preco: 2.30,
+        descricao: "Pãozinho super fofinho com recheio cremoso de queijo do reino.",
+        itens: ["1 unidade de pãozinho delícia com recheio de queijo do reino"],
+        tag: "O Queridinho",
+        imagem: "imagens/paozinho-do-reino.png"
+    },
+
+    //Doces
+
+    {
+        id: 18,
+        nome: "Brigadeiro 🍫",
+        categoria: "Doces",
+        preco: 1.50,
+        descricao: "O clássico brasileiro feito com chocolate nobre.",
+        itens: ["1 unidade de brigadeiro tradicional"],
+        tag: "Favorito",
+        imagem: "imagens/brigadeiro.png"
+    },
+    
+    {
+        id: 19,
+        nome: "Uva Coberta 🍇",
+        categoria: "Doces",
+        preco: 1.70,
+        descricao: "Uva verde selecionada envolta em brigadeiro branco.",
+        itens: ["1 unidade de brigadeiro de uva coberta"],
+        tag: "Destaque",
+        imagem: "imagens/uva-coberta.png"
+    },
+    {
+        id: 20,
+        nome: "Beijinho 🥥",
+        categoria: "Doces",
+        preco: 1.50,
+        descricao: "Doce de coco cremoso com acabamento delicado.",
+        itens: ["1 unidade de brigadeiro beijinho"],
+        tag: "Tradicional",
+        imagem: "imagens/beijinho.png"
+    },
+    {
+        id: 21,
+        nome: "Moranguinho 🍓",
+        categoria: "Doces",
+        preco: 1.50,
+        descricao: "Brigadeiro de morango macio e irresistível.",
+        itens: ["1 unidade de brigadeiro moranguinho"],
+        tag: "Tradicional",
+        imagem: "imagens/moranguinho.png"
+    },
+    {
+        id: 22,
+        nome: "Casadinho 🍪",
+        categoria: "Doces",
+        preco: 1.50,
+        descricao: "Duas massinhas macias com recheio de brigadeiro branco e brigadeiro tradicional.",
+        itens: ["1 unidade de brigadeiro casadinho"],
+        tag: "Tradicional",
+        imagem: "imagens/casadinho.png"
+    },
+    {
+        id: 23,
+        nome: "Cajuzinho 🥜",
+        categoria: "Doces",
+        preco: 1.50,
+        descricao: "Doce clássico de amendoim, irresistível e marcante.",
+        itens: ["1 unidade de brigadeiro de cajuzinho"],
+        tag: "Tradicional",
+        imagem: "imagens/cajuzinho.png"
     }
+    
 ];
 
 let carrinho = [];
@@ -169,12 +340,12 @@ function adicionarAoCarrinho(idDoce) {
 
 // Função para remover item do carrinho
 function removerDoCarrinho(idDoce) {
-    
+
     const itemIndex = carrinho.findIndex(item => item.id === idDoce);
-    
+
     if (itemIndex !== -1) {
         const item = carrinho[itemIndex];
-        
+
         if (item.quantidade > 1) {
             // Se tiver mais de 1, diminui a quantidade
             item.quantidade -= 1;
@@ -182,7 +353,7 @@ function removerDoCarrinho(idDoce) {
             // Se tiver apenas 1, remove o item completamente
             carrinho.splice(itemIndex, 1);
         }
-        
+
         atualizarInterfaceCheckout();
     }
 }
@@ -258,11 +429,11 @@ function enviarParaWhatsApp() {
     mensagem += `_Por favor, me envie as opções de entrega e chaves Pix!_`;
 
     const textoCodificado = encodeURIComponent(mensagem);
-    const numeroWhatsApp = "5573988297549"; 
+    const numeroWhatsApp = "5573988297549";
     const urlFinal = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${textoCodificado}`;
 
     window.open(urlFinal, '_blank');
 }
 
 // Inicializa o site exibindo todos os produtos da primeira vez
-renderizarCardapio("todos");
+renderizarCardapio();
