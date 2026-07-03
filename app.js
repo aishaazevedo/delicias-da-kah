@@ -108,7 +108,7 @@ const cardapio = [
     },
     {
         id: 11,
-        nome: "Dogão no Forno 🌭",
+        nome: "Dogão ao Forno 🌭",
         categoria: "Pães",
         preco: 20.00,
         descricao: "Salsicha de qualidade, molho especial, milho, ervilha, queijo derretido e batata palha crocante.",
@@ -124,7 +124,7 @@ const cardapio = [
         descricao: "Massa artesanal recheada com carne louca temperada, decorada com pimenta biquinho e pitanga de catupiry.",
         itens: ["1 unidade de pão com recheio de carne louca"],
         tag: "Novo Sabor",
-        imagem: "imagens/carne-louca.png"
+        imagem: "imagens/pao-carne.png"
     },
     {
         id: 13,
@@ -138,7 +138,7 @@ const cardapio = [
     },
     {
         id: 14,
-        nome: "Pão Recheado Calabresa 🥖",
+        nome: "Pão de Calabresa 🥖",
         categoria: "Pães",
         preco: 20.00,
         descricao: "Sabor marcante de calabresa com queijo derretido.",
@@ -148,7 +148,7 @@ const cardapio = [
     },
     {
         id: 15,
-        nome: "Pão Recheado Frango 🍗",
+        nome: "Pão de Frango 🍗",
         categoria: "Pães",
         preco: 20.00,
         descricao: "Recheado com frango temperado e suculento.",
@@ -158,7 +158,7 @@ const cardapio = [
     },
     {
         id: 16,
-        nome: "Pão Recheado Pizza 🍕",
+        nome: "Pão de Pizza 🍕",
         categoria: "Pães",
         preco: 20.00,
         descricao: "Queijo, presunto e molho de tomate.",
