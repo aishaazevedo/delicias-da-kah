@@ -412,6 +412,9 @@ function atualizarInterfaceCheckout() {
 }
 
 function enviarParaWhatsApp() {
+    // 1. Captura o valor do campo de observação
+    const observacao = document.getElementById('observacao').value;
+
     let mensagem = `*🧁 NOVO PEDIDO - DELÍCIAS DA KAH* 🧁\n\n`;
     mensagem += `Olá, Karine! Montei meu pedido pelo site:\n`;
     mensagem += `------------------------------------------\n`;
@@ -426,6 +429,12 @@ function enviarParaWhatsApp() {
 
     mensagem += `------------------------------------------\n`;
     mensagem += `*💰 TOTAL DO PEDIDO:* R$ ${total.toFixed(2)}\n\n`;
+
+    // 2. Adiciona a observação se ela não estiver vazia
+    if (observacao.trim() !== "") {
+        mensagem += `*📝 OBSERVAÇÃO:* ${observacao}\n\n`;
+    }
+
     mensagem += `_Por favor, me envie as opções de entrega e chaves Pix!_`;
 
     const textoCodificado = encodeURIComponent(mensagem);

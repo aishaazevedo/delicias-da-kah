@@ -72,21 +72,28 @@
 </main>
 
     <!-- Checkout fixo -->
-    <div id="container-checkout"
-         class="fixed bottom-0 left-0 w-full bg-white border-t border-pink-100 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] p-4 z-50 rounded-t-3xl hidden">
-      <div class="bg-[#FFF0F3] p-4 rounded-2xl mb-3">
+   <div id="container-checkout"
+     class="fixed bottom-0 left-0 w-full bg-white border-t border-pink-100 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] p-4 z-50 rounded-t-3xl hidden">
+    
+    <div class="bg-[#FFF0F3] p-4 rounded-2xl mb-3">
         <div class="flex justify-between items-center text-sm font-bold text-gray-800 mb-2">
-          <span>🛍️ Seu Pedido (<span id="checkout-qtd">0</span>)</span>
-          <span id="checkout-total" class="text-[#D14175] text-base">R$ 0,00</span>
+            <span>🛍️ Seu Pedido (<span id="checkout-qtd">0</span>)</span>
+            <span id="checkout-total" class="text-[#D14175] text-base">R$ 0,00</span>
         </div>
         <div id="checkout-itens-lista" class="text-xs text-gray-600 max-h-20 overflow-y-auto space-y-1"></div>
-      </div>
-      <button onclick="enviarParaWhatsApp()" class="w-full bg-[#25D366] text-white py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all active:scale-[0.98]">
-        Finalizar pedido pelo WhatsApp
-      </button>
     </div>
 
-  </div>
+    <div class="mb-3">
+        <textarea id="observacao" 
+                  class="w-full p-3 text-sm border border-gray-200 rounded-2xl focus:outline-none focus:border-[#D14175] transition-all" 
+                  placeholder="Alguma observação? (Ex: retirar cebola, ponto da carne...)" 
+                  rows="2"></textarea>
+    </div>
+
+    <button onclick="enviarParaWhatsApp()" class="w-full bg-[#25D366] text-white py-3.5 rounded-2xl font-bold text-sm shadow-md transition-all active:scale-[0.98]">
+        Finalizar pedido pelo WhatsApp
+    </button>
+</div>
 
   <script src="app.js" defer></script>
 </body>
