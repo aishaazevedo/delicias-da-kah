@@ -245,7 +245,7 @@ const cardapio = [
 
 let carrinho = [];
 let categoriaAtual = "todos";
-// 2. A função de desenhar agora aceita receber qual categoria ela deve listar
+// 2. A função para receber qual categoria ela deve listar
 function renderizarCardapio(categoriaFiltrada = "todos") {
     const container = document.getElementById('lista-produtos');
     container.innerHTML = "";
@@ -267,27 +267,27 @@ function renderizarCardapio(categoriaFiltrada = "todos") {
         let tagHtml = doce.tag ? `<span class="absolute top-2 left-2 z-10 bg-[#E3226D] text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded-full shadow-sm">${doce.tag}</span>` : "";
 
         // Desenha apenas os produtos filtrados na tela
-        container.innerHTML += `
-            <div class="bg-white rounded-2xl shadow-sm border border-pink-50 flex flex-col justify-between overflow-hidden relative">
-                ${tagHtml}
-                <div class="w-full h-44 bg-gray-100 overflow-hidden relative">
-                    <img src="${doce.imagem}" alt="${doce.nome}" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4 flex-1 flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-bold text-gray-800 text-sm">${doce.nome}</h3>
-                        <p class="text-xs text-gray-400 mt-0.5 leading-tight">${doce.descricao}</p>
-                        ${listaItensHtml}
-                    </div>
-                    <div class="flex justify-between items-center mt-3 pt-2 border-t border-gray-50">
-                        <span class="text-[#D14175] font-bold text-base">R$ ${doce.preco.toFixed(2)}</span>
-                        <button onclick="adicionarAoCarrinho(${doce.id})" class="border border-[#D14175] text-[#D14175] hover:bg-[#D14175] hover:text-white font-bold px-4 py-1.5 rounded-full text-xs transition-all active:scale-95">
-                            + Adicionar
-                        </button>
-                    </div>
-                </div>
+      container.innerHTML += `
+    <div class="bg-[#FFF9FA] rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between overflow-hidden relative transition-all">
+        ${tagHtml}
+        <div class="w-full h-44 bg-gray-100 overflow-hidden relative">
+            <img src="${doce.imagem}" alt="${doce.nome}" class="w-full h-full object-cover">
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+                <h3 class="font-bold text-gray-800 text-sm">${doce.nome}</h3>
+                <p class="text-xs text-gray-400 mt-0.5 leading-tight">${doce.descricao}</p>
+                ${listaItensHtml}
             </div>
-        `;
+            <div class="flex justify-between items-center mt-3 pt-2 border-t border-gray-100">
+                <span class="text-[#D14175] font-bold text-base">R$ ${doce.preco.toFixed(2)}</span>
+                <button onclick="adicionarAoCarrinho(${doce.id})" class="bg-white border border-[#D14175] text-[#D14175] hover:bg-[#D14175] hover:text-white font-bold px-4 py-1.5 rounded-full text-xs transition-all active:scale-95">
+                    + Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+`;
     });
 }
 
@@ -317,8 +317,7 @@ function filtrarCategoria(nomeCategoria) {
         } else {
 
             btn.className =
-                "categoria-btn bg-white text-gray-600 border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
-
+                "categoria-btn bg-white text-[#5C3322] border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
         }
 
     });
