@@ -317,7 +317,7 @@ function filtrarCategoria(nomeCategoria) {
         } else {
 
             btn.className =
-                "categoria-btn bg-white text-[#5C3322] border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
+                "categoria-btn bg-[#FEEFEA] text-[#5C3322] border border-pink-100 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap";
         }
 
     });
