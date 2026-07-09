@@ -437,7 +437,7 @@ function enviarParaWhatsApp() {
     mensagem += `_Por favor, me envie as opções de entrega e chaves Pix!_`;
 
     const textoCodificado = encodeURIComponent(mensagem);
-    const numeroWhatsApp = "5573988297549";
+    const numeroWhatsApp = "5573991179789";
     const urlFinal = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${textoCodificado}`;
 
     window.open(urlFinal, '_blank');
